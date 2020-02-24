@@ -10,3 +10,18 @@
 ================ Training Loss (Mon Feb 24 11:29:26 2020) ================
 ================ Training Loss (Mon Feb 24 11:29:48 2020) ================
 (epoch: 1, iters: 100, time: 0.235, data: 1.635) D: 0.330 G_B: 0.302 Idt_B: 1.582 
+================ Training Loss (Mon Feb 24 11:36:22 2020) ================
+(epoch: 1, iters: 100, time: 0.347, data: 3.256) D: 0.764 G_B: 0.745 Idt_B: 1.998 
+================ Training Loss (Mon Feb 24 11:40:26 2020) ================
+(epoch: 1, iters: 100, time: 0.372, data: 3.187) D: 0.348 G_B: 0.316 Idt_B: 2.084 
+================ Training Loss (Mon Feb 24 11:47:12 2020) ================
+(epoch: 1, iters: 100, time: 0.390, data: 3.237) D: 0.436 G_B: 0.462 Idt_B: 1.435 
+================ Training Loss (Mon Feb 24 12:10:43 2020) ================
+(epoch: 1, iters: 100, time: 0.375, data: 3.236) D: 0.394 G_B: 0.332 Idt_B: 1.778 
+================ Training Loss (Mon Feb 24 12:14:43 2020) ================
+(epoch: 1, iters: 100, time: 0.235, data: 1.666) D: 0.490 G_B: 0.483 Idt_B: 2.057 
+================ Training Loss (Mon Feb 24 13:03:40 2020) ================
+(epoch: 1, iters: 100, time: 0.353, data: 3.392) D: 0.315 G_B: 0.300 Idt_B: 1.261 
+================ Training Loss (Mon Feb 24 13:10:45 2020) ================
+(epoch: 1, iters: 100, time: 0.380, data: 3.257) D: 0.349 G_B: 0.411 Idt_B: 1.687 
+(epoch: 1, iters: 200, time: 0.345, data: 0.001) D: 0.290 G_B: 0.326 Idt_B: 1.514 
