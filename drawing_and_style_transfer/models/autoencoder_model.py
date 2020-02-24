@@ -143,7 +143,8 @@ class AutoEncoderModel(BaseModel):
     def backward_D(self):
         fake_B = self.fake_B_pool.query(self.fake_B)
         loss_D = self.backward_D_basic(self.netD, self.real_B, fake_B)
-        self.loss_D = loss_D.data[0]
+        # self.loss_D = loss_D.data[0]
+        self.loss_D = loss_D.data
 
     def _compute_kl(self, mu):
         mu_2 = torch.pow(mu, 2)
@@ -166,8 +167,10 @@ class AutoEncoderModel(BaseModel):
         loss_G.backward()
 
         self.fake_B = fake_B.data
-        self.loss_Gan = loss_Gan.data[0]
-        self.loss_idt_B = loss_idt_B.data[0]
+        # self.loss_Gan = loss_Gan.data[0]
+        self.loss_Gan = loss_Gan.data
+        # self.loss_idt_B = loss_idt_B.data[0]
+        self.loss_idt_B = loss_idt_B.data
 
     def optimize_parameters(self):
         # forward
