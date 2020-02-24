@@ -7,27 +7,39 @@ def get_loader(config):
     """Builds and returns Dataloader for MNIST and SVHN dataset."""
 
     transform_list = []
+    transform_MNIST_list = []
 
     if config.use_augmentation:
         transform_list.append(transforms.RandomHorizontalFlip())
         transform_list.append(transforms.RandomRotation(0.1))
 
-    transform_list.append(transforms.Scale(config.image_size))
+    # transform_list.append(transforms.Scale(config.image_size))
+    transform_list.append(transforms.Resize(config.image_size))
     transform_list.append(transforms.ToTensor())
     transform_list.append(transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)))
 
+    transform_MNIST_list.append(transforms.Resize(config.image_size))
+    transform_MNIST_list.append(transforms.ToTensor())
+    transform_MNIST_list.append(transforms.Normalize((0.5,), (0.5,)))
+
     transform_test = transforms.Compose([
-        transforms.Scale(config.image_size),
+        transforms.Resize(config.image_size),
         transforms.ToTensor(),
         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
+    transform_MNIST_test = transforms.Compose([
+        transforms.Resize(config.image_size),
+        transforms.ToTensor(),
+        transforms.Normalize((0.5,), (0.5,))])
+
     transform_train = transforms.Compose(transform_list)
+    transform_MNIST_train = transforms.Compose(transform_MNIST_list)
 
     svhn = datasets.SVHN(root=config.svhn_path, download=True, transform=transform_train, split='train')
-    mnist = datasets.MNIST(root=config.mnist_path, download=True, transform=transform_train, train=True)
+    mnist = datasets.MNIST(root=config.mnist_path, download=True, transform=transform_MNIST_train, train=True)
 
     svhn_test = datasets.SVHN(root=config.svhn_path, download=True, transform=transform_test, split='test')
-    mnist_test = datasets.MNIST(root=config.mnist_path, download=True, transform=transform_test, train=False)
+    mnist_test = datasets.MNIST(root=config.mnist_path, download=True, transform=transform_MNIST_test, train=False)
 
     svhn_loader = torch.utils.data.DataLoader(dataset=svhn,
                                               batch_size=config.batch_size,

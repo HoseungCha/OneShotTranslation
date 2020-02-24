@@ -2,3 +2,6 @@
 \raw
 \svhn
 \MNIST
+\datasets
+\samples_autoencoder
+*.whl

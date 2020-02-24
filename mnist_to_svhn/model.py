@@ -1,5 +1,6 @@
 import torch.nn as nn
 import torch.nn.functional as F
+# import torch.tanh as tanH
 
 
 def deconv(c_in, c_out, k_size, stride=2, pad=1, bn=True):
