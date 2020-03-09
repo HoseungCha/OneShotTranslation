@@ -5,3 +5,4 @@
 \datasets
 \samples_autoencoder
 *.whl
+/drawing_and_style_transfer/checkpoints

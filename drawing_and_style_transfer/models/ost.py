@@ -194,11 +194,11 @@ class OSTModel(BaseModel):
     def backward_D(self):
         fake_AB = self.fake_B_pool.query(self.fake_AB)
         loss_D_ab = self.backward_D_basic(self.netD_b, self.real_B, fake_AB)
-        self.loss_D_ab = loss_D_ab.data[0]
+        self.loss_D_ab = loss_D_ab.data
 
         fake_BB = self.fake_B_pool.query(self.fake_BB)
         loss_D_bb = self.backward_D_basic(self.netD_b, self.real_B, fake_BB)
-        self.loss_D_bb = loss_D_bb.data[0]
+        self.loss_D_bb = loss_D_bb.data
 
     def backward_G(self):
         # GAN loss D_A(G_A(A))
@@ -227,12 +227,12 @@ class OSTModel(BaseModel):
         self.fake_BB = fake_BB.data
         self.fake_AB = fake_AB.data
         self.fake_ABA = fake_ABA.data
-        self.loss_cycle_A = loss_cycle_A.data[0]
-        self.loss_Gan_AB = loss_Gan_AB.data[0]
-        self.loss_Gan_BB = loss_Gan_AB.data[0]
-        self.loss_idt_A = loss_idt_A.data[0]
-        self.loss_idt_B = loss_idt_B.data[0]
-        self.loss_kl_B = loss_kl_B.data[0]
+        self.loss_cycle_A = loss_cycle_A.data
+        self.loss_Gan_AB = loss_Gan_AB.data
+        self.loss_Gan_BB = loss_Gan_AB.data
+        self.loss_idt_A = loss_idt_A.data
+        self.loss_idt_B = loss_idt_B.data
+        self.loss_kl_B = loss_kl_B.data
 
         return loss_G_A, loss_G_B
 
